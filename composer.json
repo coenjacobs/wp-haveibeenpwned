@@ -1,0 +1,53 @@
+{
+  "name": "coenjacobs/wp-haveibeenpwned",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "Coen Jacobs",
+      "email": "coenjacobs@gmail.com"
+    }
+  ],
+  "autoload": {
+    "classmap": [
+      "classes"
+    ],
+    "psr-4": {
+      "CoenJacobs\\HaveIBeenPwned\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "xrstf/composer-php52": "^1.0",
+    "wpupdatephp/wp-update-php": "^1.1"
+  },
+  "require-dev": {
+    "coenjacobs/mozart": "^0.2.1"
+  },
+  "extra": {
+    "mozart": {
+      "dep_namespace": "CoenJacobs\\HaveIBeenPwned",
+      "dep_directory": "/src/Dependencies/",
+      "classmap_directory": "/classes/dependencies/",
+      "classmap_prefix": "HIBP_",
+      "packages": [
+        "wpupdatephp/wp-update-php"
+      ]
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "xrstf\\Composer52\\Generator::onPostInstallCmd",
+      "\"vendor/bin/mozart\" compose",
+      "composer dumpautoload"
+    ],
+    "post-update-cmd": [
+      "xrstf\\Composer52\\Generator::onPostInstallCmd",
+      "\"vendor/bin/mozart\" compose",
+      "composer dumpautoload"
+    ],
+    "post-autoload-dump": [
+      "xrstf\\Composer52\\Generator::onPostInstallCmd"
+    ]
+  }
+}
