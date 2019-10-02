@@ -16,7 +16,7 @@ class Login
 			return $check;
 		}
 
-		$pwndhash = utf8_encode( strtoupper( sha1( htmlspecialchars( $password ) ) ) );
+		$pwndhash = utf8_encode( strtoupper( sha1( $password ) ) );
 		$k_anon   = substr( $pwndhash, 0, 5 );
 
 		$service_url = 'https://api.pwnedpasswords.com/range/' . $k_anon;
