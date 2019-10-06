@@ -5,7 +5,7 @@
  * Description: Checks if the password for each user account has been compromised via haveibeenpwned.com as soon as the user logs in. This will never send the actual password of your users, but it rather fetches a list to do the check locally.
  * Author: Coen Jacobs
  * Author URI: https://coenjacobs.me
- * Version: 0.1
+ * Version: 0.1.1
  */
 
 require('vendor/autoload_52.php');
